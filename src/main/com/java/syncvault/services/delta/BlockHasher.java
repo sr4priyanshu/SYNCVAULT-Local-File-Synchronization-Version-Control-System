@@ -1,3 +1,4 @@
+// Provides SHA-256 hex hashing and constant-time equality comparison for byte blocks.
 package com.syncvault.services.delta;
 
 import java.security.MessageDigest;
