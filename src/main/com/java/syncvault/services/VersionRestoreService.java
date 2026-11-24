@@ -1,4 +1,4 @@
-
+// Reconstructs and validates a target file version, backs up the current file if present, atomically replaces it, updates database state and activity logs, and cleans up temporary files.
 package com.syncvault.services;
 
 import com.syncvault.db.dao.FileDao;
