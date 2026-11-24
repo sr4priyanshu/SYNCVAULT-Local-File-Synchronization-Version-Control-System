@@ -1,4 +1,4 @@
-
+//Scans directories to discover files and tracks their registration and update status.
 package com.syncvault.services;
 
 import com.syncvault.db.dao.ActivityLogDao;
