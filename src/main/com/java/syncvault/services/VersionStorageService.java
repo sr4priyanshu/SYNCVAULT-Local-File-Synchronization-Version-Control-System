@@ -1,3 +1,4 @@
+// Creates a new deduplicated file version as a delta (when smaller and off the snapshot interval) or full snapshot, persists metadata, and cleans up temporary files.
 
 package com.syncvault.services;
 
