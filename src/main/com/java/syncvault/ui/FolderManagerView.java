@@ -1,3 +1,4 @@
+// This class manages tracked folders in SyncVault, allowing users to add, view, and remove folders while maintaining their records in SQLite.
 package com.syncvault.ui;
 
 import com.syncvault.db.dao.ActivityLogDao;
