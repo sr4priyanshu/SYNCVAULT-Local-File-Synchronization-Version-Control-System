@@ -1,3 +1,4 @@
+//This class creates the SyncVault dashboard and displays file statistics, storage information and recent activity.
 package com.syncvault.ui;
 import com.syncvault.db.dao.ActivityLogDao;
 import com.syncvault.db.dao.DashboardStatsDao;
