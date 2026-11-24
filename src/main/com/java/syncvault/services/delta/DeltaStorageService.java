@@ -1,3 +1,4 @@
+// Serializes and deserializes gzip-compressed binary delta packages with header/block validation and atomic file writes.
 package com.syncvault.services.delta;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
