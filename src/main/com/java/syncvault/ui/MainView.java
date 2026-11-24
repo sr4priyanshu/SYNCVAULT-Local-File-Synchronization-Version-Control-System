@@ -1,3 +1,4 @@
+// This class manages the main SyncVault interface, providing sidebar navigation between the Dashboard, Folder Manager, Version History, and Restore Center.
 package com.syncvault.ui;
 
 import javafx.animation.ScaleTransition;
