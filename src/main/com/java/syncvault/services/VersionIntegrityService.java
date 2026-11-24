@@ -1,3 +1,4 @@
+// Verifies file existence, size, and SHA-256 integrity for full snapshots or delta versions (including delta package metadata and reconstructed file output).
 
 package com.syncvault.services;
 
