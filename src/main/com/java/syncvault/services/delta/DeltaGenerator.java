@@ -1,3 +1,4 @@
+// Computes a block-level delta package between an old and new file by hashing blocks, verifying matching hashes with byte comparison, and collecting changed blocks.
 package com.syncvault.services.delta;
 import java.io.IOException;
 import java.nio.file.Files;
