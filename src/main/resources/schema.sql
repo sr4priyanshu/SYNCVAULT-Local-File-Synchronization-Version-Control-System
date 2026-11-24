@@ -1,15 +1,9 @@
 PRAGMA foreign_keys = ON;
--- ============================================================
--- USERS
--- ============================================================
 CREATE TABLE IF NOT EXISTS users (
     user_id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT NOT NULL UNIQUE,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
--- ============================================================
--- FOLDERS
--- ============================================================
 CREATE TABLE IF NOT EXISTS folders (
     folder_id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER,
@@ -19,9 +13,6 @@ CREATE TABLE IF NOT EXISTS folders (
         REFERENCES users(user_id)
         ON DELETE CASCADE
 );
--- ============================================================
--- FILES
--- ============================================================
 CREATE TABLE IF NOT EXISTS files (
     file_id INTEGER PRIMARY KEY AUTOINCREMENT,
     folder_id INTEGER NOT NULL,
@@ -36,9 +27,6 @@ CREATE TABLE IF NOT EXISTS files (
         REFERENCES folders(folder_id)
         ON DELETE CASCADE
 );
--- ============================================================
--- VERSIONS
--- ============================================================
 CREATE TABLE IF NOT EXISTS versions (
     version_id INTEGER PRIMARY KEY AUTOINCREMENT,
     file_id INTEGER NOT NULL,
@@ -52,12 +40,10 @@ CREATE TABLE IF NOT EXISTS versions (
     FOREIGN KEY (file_id)
         REFERENCES files(file_id)
         ON DELETE CASCADE,
-    FOREIGN KEY (parent_version_id)
-        REFERENCES versions(version_id)
+        FOREIGN KEY (parent_version_id)
+        REFERENCES versions(version_id),
+    UNIQUE (file_id, version_number)
 );
--- ============================================================
--- ACTIVITY LOGS
--- ============================================================
 CREATE TABLE IF NOT EXISTS activity_logs (
     log_id INTEGER PRIMARY KEY AUTOINCREMENT,
     file_id INTEGER,
@@ -68,9 +54,22 @@ CREATE TABLE IF NOT EXISTS activity_logs (
         REFERENCES files(file_id)
         ON DELETE SET NULL
 );
--- ============================================================
--- INDEXES
--- ============================================================
+CREATE TABLE IF NOT EXISTS files (
+    file_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    folder_id INTEGER NOT NULL,
+    file_name TEXT NOT NULL,
+    file_path TEXT NOT NULL UNIQUE,
+    extension TEXT,
+    current_hash TEXT,
+    current_size INTEGER,
+    is_missing INTEGER NOT NULL DEFAULT 0
+        CHECK (is_missing IN (0, 1)),
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT,
+    FOREIGN KEY (folder_id)
+        REFERENCES folders(folder_id)
+        ON DELETE CASCADE
+);
 CREATE INDEX IF NOT EXISTS idx_folders_user
 ON folders(user_id);
 CREATE INDEX IF NOT EXISTS idx_files_folder
@@ -89,3 +88,5 @@ CREATE INDEX IF NOT EXISTS idx_activity_file
 ON activity_logs(file_id);
 CREATE INDEX IF NOT EXISTS idx_activity_created
 ON activity_logs(created_at);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_versions_file_number
+ON versions(file_id, version_number);
