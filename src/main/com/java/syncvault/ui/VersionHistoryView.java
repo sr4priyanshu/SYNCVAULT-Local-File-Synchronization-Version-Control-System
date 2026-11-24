@@ -1,3 +1,4 @@
+// This class displays the version history of tracked files in SyncVault, showing saved versions, their timestamps, storage types, file sizes, and the latest version.
 package com.syncvault.ui;
 
 import com.syncvault.db.dao.FileDao;
