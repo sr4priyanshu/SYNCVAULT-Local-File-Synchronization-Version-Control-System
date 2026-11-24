@@ -1,4 +1,4 @@
-package com.syncvault.services.delta;
+// Reconstructs a target file by validating blocks, copying a base snapshot to a temporary file, applying delta replacements, truncating to target size, and atomically moving it into place.package com.syncvault.services.delta;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
