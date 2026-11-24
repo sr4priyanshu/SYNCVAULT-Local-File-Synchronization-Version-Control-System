@@ -1,3 +1,4 @@
+// Reads a file in fixed-size byte blocks (defaulting to 4096 bytes) and passes each indexed block to a BlockConsumer.
 package com.syncvault.services.delta;
 import java.io.IOException;
 import java.io.InputStream;
