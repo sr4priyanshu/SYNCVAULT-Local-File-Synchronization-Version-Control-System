@@ -1,3 +1,4 @@
+//Main class responsible for initializing and executing the application.
 package com.syncvault;
 import com.syncvault.db.DatabaseInitializer;
 import com.syncvault.ui.MainView;
