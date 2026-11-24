@@ -1,3 +1,4 @@
+// This class provides the SyncVault Restore Center, allowing users to view saved file versions, inspect version details, and prepare for file recovery.
 package com.syncvault.ui;
 import com.syncvault.db.dao.FileDao;
 import com.syncvault.db.dao.UserDao;
