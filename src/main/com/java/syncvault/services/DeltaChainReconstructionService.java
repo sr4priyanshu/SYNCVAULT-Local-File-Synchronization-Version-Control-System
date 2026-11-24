@@ -1,3 +1,4 @@
+// Walks and validates a version chain back to a full snapshot, applies deltas sequentially into temporary files with SHA-256 verification, and returns the reconstructed temporary file.
 package com.syncvault.services;
 import com.syncvault.db.dao.VersionDao;
 import com.syncvault.db.models.VersionRecord;
