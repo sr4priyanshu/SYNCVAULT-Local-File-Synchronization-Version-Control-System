@@ -1,3 +1,5 @@
+//Monitors file system changes and triggers synchronization when files are modified
+
 package com.syncvault.services;
 
 import com.syncvault.db.dao.FolderDao;
